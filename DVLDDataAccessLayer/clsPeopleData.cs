@@ -1,10 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DVLDDataAccessLayer
 {
@@ -12,7 +9,7 @@ namespace DVLDDataAccessLayer
     {
         public static bool GetPersonInfoByID(int PersonID, ref string NationalNo, ref string FirstName,
             ref string SecondName, ref string ThirdName, ref string LastName, ref DateTime DateOfBirth,
-            ref short Gender, ref string Address, ref string Phone, ref string Email,
+            ref byte Gender, ref string Address, ref string Phone, ref string Email,
             ref int NationalityCountryID, ref string ImagePath)
         {
             bool isFound = false;
@@ -39,7 +36,7 @@ namespace DVLDDataAccessLayer
                     SecondName = (string)reader["SecondName"];
                     LastName = (string)reader["LastName"];
                     DateOfBirth = (DateTime)reader["DateOfBirth"];
-                    Gender = (short)reader["Gender"];
+                    Gender = (byte)reader["Gender"];
                     Address = (string)reader["Address"];
                     Phone = (string)reader["Phone"];
                     NationalityCountryID = (int)reader["NationalityCountryID"];
@@ -78,6 +75,7 @@ namespace DVLDDataAccessLayer
             catch (Exception ex)
             {
                 isFound = false;
+                Console.WriteLine("Error: " + ex.Message);
             }
             finally
             {
@@ -88,7 +86,7 @@ namespace DVLDDataAccessLayer
 
         public static int AddNewPerson(string NationalNo, string FirstName,
             string SecondName, string ThirdName, string LastName, DateTime DateOfBirth,
-            short Gender, string Address,  string Phone, string Email,
+            byte Gender, string Address,  string Phone, string Email,
             int NationalityCountryID, string ImagePath)
         {
             int PersonID = -1;
@@ -143,6 +141,7 @@ namespace DVLDDataAccessLayer
 
             catch (Exception ex)
             {
+                Console.WriteLine("Error: " + ex.Message);
             }
             finally
             {
@@ -153,40 +152,58 @@ namespace DVLDDataAccessLayer
             return PersonID;
         }
 
-        public static bool UpdateContact(int ID, string FirstName, string LastName,
-            string Email, string Phone, string Address, DateTime DateOfBirth, int CountryID, string ImagePath)
+        public static bool UpdatePerson(int PersonID, string NationalNo, string FirstName,
+            string SecondName, string ThirdName, string LastName, DateTime DateOfBirth,
+            byte Gender, string Address, string Phone, string Email,
+            int NationalityCountryID, string ImagePath)
         {
 
             int rowsAffected = 0;
             SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
 
             string query = @"Update  Contacts  
-                            set FirstName = @FirstName, 
+                            set NationalNo = @NationalNo
+                                FirstName = @FirstName, 
+                                SecondName = @SecondName, 
+                                ThirdName = @ThirdName, 
                                 LastName = @LastName, 
-                                Email = @Email, 
-                                Phone = @Phone, 
-                                Address = @Address, 
                                 DateOfBirth = @DateOfBirth,
-                                CountryID = @CountryID,
+                                Gender = @Gender,
+                                Address = @Address, 
+                                Phone = @Phone, 
+                                Email = @Email, 
+                                NationalityCountryID = @NationalityCountryID,
                                 ImagePath =@ImagePath
-                                where ContactID = @ContactID";
+                                where ID = @ID";
 
             SqlCommand command = new SqlCommand(query, connection);
 
-            command.Parameters.AddWithValue("@ContactID", ID);
+            command.Parameters.AddWithValue("@PersonID", PersonID);
+            command.Parameters.AddWithValue("@NationalNo", NationalNo);
             command.Parameters.AddWithValue("@FirstName", FirstName);
+            command.Parameters.AddWithValue("@SecondName", SecondName);
+            command.Parameters.AddWithValue("@ThirdName", ThirdName);
             command.Parameters.AddWithValue("@LastName", LastName);
-            command.Parameters.AddWithValue("@Email", Email);
-            command.Parameters.AddWithValue("@Phone", Phone);
-            command.Parameters.AddWithValue("@Address", Address);
             command.Parameters.AddWithValue("@DateOfBirth", DateOfBirth);
-            command.Parameters.AddWithValue("@CountryID", CountryID);
+            command.Parameters.AddWithValue("@Gender", Gender);
+            command.Parameters.AddWithValue("@Address", Address);
+            command.Parameters.AddWithValue("@Phone", Phone);
+            command.Parameters.AddWithValue("@NationalityCountryID", NationalityCountryID);
+
+            if (ThirdName != "" && ThirdName != null)
+                command.Parameters.AddWithValue("@ThirdName", ThirdName);
+            else
+                command.Parameters.AddWithValue("@ThirdName", System.DBNull.Value);
+
+            if (Email != "" && Email != null)
+                command.Parameters.AddWithValue("@Email", Email);
+            else
+                command.Parameters.AddWithValue("@Email", System.DBNull.Value);
 
             if (ImagePath != "" && ImagePath != null)
                 command.Parameters.AddWithValue("@ImagePath", ImagePath);
             else
                 command.Parameters.AddWithValue("@ImagePath", System.DBNull.Value);
-
 
             try
             {
@@ -196,48 +213,38 @@ namespace DVLDDataAccessLayer
             }
             catch (Exception ex)
             {
-                //Console.WriteLine("Error: " + ex.Message);
+                Console.WriteLine("Error: " + ex.Message);
                 return false;
             }
-
             finally
             {
                 connection.Close();
             }
-
             return (rowsAffected > 0);
         }
 
-        public static DataTable GetAllContacts()
+        public static DataTable GetAllPeople()
         {
-
             DataTable dt = new DataTable();
             SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
 
-            string query = "SELECT * FROM Contacts";
-
+            string query = "SELECT * FROM DVLD";
             SqlCommand command = new SqlCommand(query, connection);
 
             try
             {
                 connection.Open();
-
                 SqlDataReader reader = command.ExecuteReader();
 
                 if (reader.HasRows)
-
                 {
                     dt.Load(reader);
                 }
-
                 reader.Close();
-
-
             }
-
             catch (Exception ex)
             {
-                // Console.WriteLine("Error: " + ex.Message);
+                Console.WriteLine("Error: " + ex.Message);
             }
             finally
             {
@@ -245,56 +252,48 @@ namespace DVLDDataAccessLayer
             }
 
             return dt;
-
         }
 
-        public static bool DeleteContact(int ContactID)
+        public static bool DeletePerson(int PersonID)
         {
-
             int rowsAffected = 0;
 
             SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
 
-            string query = @"Delete Contacts 
-                                where ContactID = @ContactID";
+            string query = @"Delete DVLD 
+                                where PersonID = @PersonID";
 
             SqlCommand command = new SqlCommand(query, connection);
 
-            command.Parameters.AddWithValue("@ContactID", ContactID);
+            command.Parameters.AddWithValue("@PersonID", PersonID);
 
             try
             {
                 connection.Open();
-
                 rowsAffected = command.ExecuteNonQuery();
-
             }
             catch (Exception ex)
             {
-                // Console.WriteLine("Error: " + ex.Message);
+                Console.WriteLine("Error: " + ex.Message);
             }
             finally
             {
-
                 connection.Close();
-
             }
-
             return (rowsAffected > 0);
-
         }
 
-        public static bool IsContactExist(int ID)
+        public static bool IsPersonExist(int PersonID)
         {
             bool isFound = false;
 
             SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
 
-            string query = "SELECT Found=1 FROM Contacts WHERE ContactID = @ContactID";
+            string query = "SELECT Found=1 FROM DVLD WHERE PersonID = @PersonID";
 
             SqlCommand command = new SqlCommand(query, connection);
 
-            command.Parameters.AddWithValue("@ContactID", ID);
+            command.Parameters.AddWithValue("@PersonID", PersonID);
 
             try
             {
@@ -302,19 +301,17 @@ namespace DVLDDataAccessLayer
                 SqlDataReader reader = command.ExecuteReader();
 
                 isFound = reader.HasRows;
-
                 reader.Close();
             }
             catch (Exception ex)
             {
-                //Console.WriteLine("Error: " + ex.Message);
                 isFound = false;
+                Console.WriteLine("Error: " + ex.Message);
             }
             finally
             {
                 connection.Close();
             }
-
             return isFound;
         }
     }

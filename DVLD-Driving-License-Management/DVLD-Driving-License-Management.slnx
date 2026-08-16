@@ -1,5 +1,0 @@
-<Solution>
-  <Project Path="../DVLDBusinessLayer/DVLDBusinessLayer.csproj" Id="9e73772e-7431-4595-ba94-d3da31013ca8" />
-  <Project Path="../DVLDDataAccessLayer/DVLDDataAccessLayer.csproj" Id="ca710ce6-b203-400e-9f30-09e6fb4a0dc6" />
-  <Project Path="DVLD-Driving-License-Management.csproj" Id="1b1314d0-edb4-4ed0-8e93-df847d3039fb" />
-</Solution>

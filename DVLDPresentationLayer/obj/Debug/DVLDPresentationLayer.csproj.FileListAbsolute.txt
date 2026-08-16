@@ -1,0 +1,10 @@
+M:\Coding\Projects\DVLD-Project\DVLDPresentationLayer\bin\Debug\DVLDPresentationLayer.exe.config
+M:\Coding\Projects\DVLD-Project\DVLDPresentationLayer\bin\Debug\DVLDPresentationLayer.exe
+M:\Coding\Projects\DVLD-Project\DVLDPresentationLayer\bin\Debug\DVLDPresentationLayer.pdb
+M:\Coding\Projects\DVLD-Project\DVLDPresentationLayer\obj\Debug\DVLDPresentationLayer.csproj.AssemblyReference.cache
+M:\Coding\Projects\DVLD-Project\DVLDPresentationLayer\obj\Debug\DVLDPresentationLayer.Properties.Resources.resources
+M:\Coding\Projects\DVLD-Project\DVLDPresentationLayer\obj\Debug\DVLDPresentationLayer.csproj.GenerateResource.cache
+M:\Coding\Projects\DVLD-Project\DVLDPresentationLayer\obj\Debug\DVLDPresentationLayer.csproj.CoreCompileInputs.cache
+M:\Coding\Projects\DVLD-Project\DVLDPresentationLayer\obj\Debug\DVLDPresentationLayer.exe
+M:\Coding\Projects\DVLD-Project\DVLDPresentationLayer\obj\Debug\DVLDPresentationLayer.pdb
+M:\Coding\Projects\DVLD-Project\DVLDPresentationLayer\obj\Debug\DVLDPresentationLayer.Form1.resources

@@ -1,0 +1,9 @@
+M:\Coding\Projects\DVLD-Project\DVLDBusinessLayer\bin\Debug\DVLDBusinessLayer.dll
+M:\Coding\Projects\DVLD-Project\DVLDBusinessLayer\bin\Debug\DVLDBusinessLayer.pdb
+M:\Coding\Projects\DVLD-Project\DVLDBusinessLayer\bin\Debug\DVLDDataAccessLayer.dll
+M:\Coding\Projects\DVLD-Project\DVLDBusinessLayer\bin\Debug\DVLDDataAccessLayer.pdb
+M:\Coding\Projects\DVLD-Project\DVLDBusinessLayer\obj\Debug\DVLDBusinessLayer.csproj.AssemblyReference.cache
+M:\Coding\Projects\DVLD-Project\DVLDBusinessLayer\obj\Debug\DVLDBusinessLayer.csproj.CoreCompileInputs.cache
+M:\Coding\Projects\DVLD-Project\DVLDBusinessLayer\obj\Debug\DVLDBusi.7D6D57CA.Up2Date
+M:\Coding\Projects\DVLD-Project\DVLDBusinessLayer\obj\Debug\DVLDBusinessLayer.dll
+M:\Coding\Projects\DVLD-Project\DVLDBusinessLayer\obj\Debug\DVLDBusinessLayer.pdb

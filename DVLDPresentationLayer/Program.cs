@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace DVLD_Driving_License_Management
+namespace DVLDPresentationLayer
 {
     internal static class Program
     {

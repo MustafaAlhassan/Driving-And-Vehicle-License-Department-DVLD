@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace DVLD_Driving_License_Management.Properties
+namespace DVLDPresentationLayer.Properties
 {
 
 

@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{1B1314D0-EDB4-4ED0-8E93-DF847D3039FB}</ProjectGuid>
+    <ProjectGuid>{6557E32F-5AA7-496E-8552-019DAE533B2C}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>DVLD_Driving_License_Management</RootNamespace>
-    <AssemblyName>DVLD-Driving-License-Management</AssemblyName>
+    <RootNamespace>DVLDPresentationLayer</RootNamespace>
+    <AssemblyName>DVLDPresentationLayer</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -54,6 +54,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -62,6 +65,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -75,6 +79,21 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Applications.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\People.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\driver.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\users_config.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Account_settings.png" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DVLDBusinessLayer\DVLDBusinessLayer.csproj">
