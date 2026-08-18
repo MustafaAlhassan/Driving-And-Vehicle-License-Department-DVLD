@@ -7,9 +7,10 @@ M:\Coding\Projects\DVLD-Project\DVLDPresentationLayer\obj\Debug\DVLDPresentation
 M:\Coding\Projects\DVLD-Project\DVLDPresentationLayer\obj\Debug\DVLDPresentationLayer.csproj.CoreCompileInputs.cache
 M:\Coding\Projects\DVLD-Project\DVLDPresentationLayer\obj\Debug\DVLDPresentationLayer.exe
 M:\Coding\Projects\DVLD-Project\DVLDPresentationLayer\obj\Debug\DVLDPresentationLayer.pdb
-M:\Coding\Projects\DVLD-Project\DVLDPresentationLayer\obj\Debug\DVLDPresentationLayer.Form1.resources
 M:\Coding\Projects\DVLD-Project\DVLDPresentationLayer\bin\Debug\DVLDBusinessLayer.dll
 M:\Coding\Projects\DVLD-Project\DVLDPresentationLayer\bin\Debug\DVLDDataAccessLayer.dll
 M:\Coding\Projects\DVLD-Project\DVLDPresentationLayer\bin\Debug\DVLDBusinessLayer.pdb
 M:\Coding\Projects\DVLD-Project\DVLDPresentationLayer\bin\Debug\DVLDDataAccessLayer.pdb
 M:\Coding\Projects\DVLD-Project\DVLDPresentationLayer\obj\Debug\DVLDPres.01805F8B.Up2Date
+M:\Coding\Projects\DVLD-Project\DVLDPresentationLayer\obj\Debug\DVLDPresentationLayer.MainForm.resources
+M:\Coding\Projects\DVLD-Project\DVLDPresentationLayer\obj\Debug\DVLDPresentationLayer.ManagePeopleForm.resources

@@ -16,7 +16,7 @@ namespace DVLDDataAccessLayer
 
             SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
 
-            string query = "SELECT * FROM DVLD WHERE PersonID = @PersonID";
+            string query = "SELECT * FROM People WHERE PersonID = @PersonID";
 
             SqlCommand command = new SqlCommand(query, connection);
 
@@ -93,7 +93,7 @@ namespace DVLDDataAccessLayer
 
             SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
 
-            string query = @"INSERT INTO DVLD (NationalNo, FirstName, SecondName, ThirdName, LastName, DateOfBirth, Gender, Address, Phone, Email, NationalityCountryID, ImagePath)
+            string query = @"INSERT INTO People (NationalNo, FirstName, SecondName, ThirdName, LastName, DateOfBirth, Gender, Address, Phone, Email, NationalityCountryID, ImagePath)
                              VALUES (@NationalNo, @FirstName, @SecondName, @ThirdName, @LastName, @DateOfBirth, @Gender, @Address, @Phone, @Email, @NationalityCountryID, @ImagePath);
                              SELECT SCOPE_IDENTITY();";
 
@@ -161,7 +161,7 @@ namespace DVLDDataAccessLayer
             int rowsAffected = 0;
             SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
 
-            string query = @"Update  Contacts  
+            string query = @"Update  People  
                             set NationalNo = @NationalNo
                                 FirstName = @FirstName, 
                                 SecondName = @SecondName, 
@@ -228,7 +228,7 @@ namespace DVLDDataAccessLayer
             DataTable dt = new DataTable();
             SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
 
-            string query = "SELECT * FROM DVLD";
+            string query = "SELECT People.PersonID, People.NationalNo, People.FirstName, People.SecondName, People.ThirdName, People.LastName, People.DateOfBirth, \r\n                  CASE WHEN People.Gender = 0 THEN 'Male' WHEN People.Gender = 1 THEN 'Female' ELSE 'Unknown' END AS GenderCaption, People.Address, People.Phone, People.Email, People.ImagePath, Countries.CountryName\r\nFROM     People INNER JOIN\r\n                  Countries ON People.NationalityCountryID = Countries.CountryID";
             SqlCommand command = new SqlCommand(query, connection);
 
             try
@@ -260,7 +260,7 @@ namespace DVLDDataAccessLayer
 
             SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
 
-            string query = @"Delete DVLD 
+            string query = @"Delete People 
                                 where PersonID = @PersonID";
 
             SqlCommand command = new SqlCommand(query, connection);
@@ -289,7 +289,7 @@ namespace DVLDDataAccessLayer
 
             SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
 
-            string query = "SELECT Found=1 FROM DVLD WHERE PersonID = @PersonID";
+            string query = "SELECT Found=1 FROM People WHERE PersonID = @PersonID";
 
             SqlCommand command = new SqlCommand(query, connection);
 
