@@ -3,12 +3,12 @@
   "WorkspaceRootPath": "M:\\Coding\\Projects\\DVLD-Project\\DVLDPresentationLayer\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{6557E32F-5AA7-496E-8552-019DAE533B2C}|DVLDPresentationLayer.csproj|m:\\coding\\projects\\dvld-project\\dvldpresentationlayer\\managepeopleform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6557E32F-5AA7-496E-8552-019DAE533B2C}|DVLDPresentationLayer.csproj|solutionrelative:managepeopleform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{6557E32F-5AA7-496E-8552-019DAE533B2C}|DVLDPresentationLayer.csproj|m:\\coding\\projects\\dvld-project\\dvldpresentationlayer\\personcontrol.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6557E32F-5AA7-496E-8552-019DAE533B2C}|DVLDPresentationLayer.csproj|solutionrelative:personcontrol.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{6557E32F-5AA7-496E-8552-019DAE533B2C}|DVLDPresentationLayer.csproj|m:\\coding\\projects\\dvld-project\\dvldpresentationlayer\\managepeopleform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{6557E32F-5AA7-496E-8552-019DAE533B2C}|DVLDPresentationLayer.csproj|solutionrelative:managepeopleform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{6557E32F-5AA7-496E-8552-019DAE533B2C}|DVLDPresentationLayer.csproj|m:\\coding\\projects\\dvld-project\\dvldpresentationlayer\\personcontrol.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{6557E32F-5AA7-496E-8552-019DAE533B2C}|DVLDPresentationLayer.csproj|solutionrelative:personcontrol.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     }
   ],
   "DocumentGroupContainers": [
@@ -23,26 +23,26 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "ManagePeopleForm.cs",
-              "DocumentMoniker": "M:\\Coding\\Projects\\DVLD-Project\\DVLDPresentationLayer\\ManagePeopleForm.cs",
-              "RelativeDocumentMoniker": "ManagePeopleForm.cs",
-              "ToolTip": "M:\\Coding\\Projects\\DVLD-Project\\DVLDPresentationLayer\\ManagePeopleForm.cs*",
-              "RelativeToolTip": "ManagePeopleForm.cs*",
-              "ViewState": "AgIAADIAAAAAAAAAAIAwwEMAAAAeAAAAAAAAAA==",
+              "Title": "PersonControl.cs",
+              "DocumentMoniker": "M:\\Coding\\Projects\\DVLD-Project\\DVLDPresentationLayer\\PersonControl.cs",
+              "RelativeDocumentMoniker": "PersonControl.cs",
+              "ToolTip": "M:\\Coding\\Projects\\DVLD-Project\\DVLDPresentationLayer\\PersonControl.cs",
+              "RelativeToolTip": "PersonControl.cs",
+              "ViewState": "AgIAAH0AAAAAAAAAAAApwIoAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-08-19T17:48:42.528Z",
+              "WhenOpened": "2026-08-20T14:46:53.26Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "ManagePeopleForm.cs [Design]",
-              "DocumentMoniker": "M:\\Coding\\Projects\\DVLD-Project\\DVLDPresentationLayer\\ManagePeopleForm.cs",
-              "RelativeDocumentMoniker": "ManagePeopleForm.cs",
-              "ToolTip": "M:\\Coding\\Projects\\DVLD-Project\\DVLDPresentationLayer\\ManagePeopleForm.cs [Design]*",
-              "RelativeToolTip": "ManagePeopleForm.cs [Design]*",
+              "Title": "PersonControl.cs [Design]",
+              "DocumentMoniker": "M:\\Coding\\Projects\\DVLD-Project\\DVLDPresentationLayer\\PersonControl.cs",
+              "RelativeDocumentMoniker": "PersonControl.cs",
+              "ToolTip": "M:\\Coding\\Projects\\DVLD-Project\\DVLDPresentationLayer\\PersonControl.cs [Design]",
+              "RelativeToolTip": "PersonControl.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-08-19T17:48:40.911Z",
+              "WhenOpened": "2026-08-20T14:46:45.41Z",
               "EditorCaption": " [Design]"
             }
           ]
