@@ -14,5 +14,5 @@ M:\Coding\Projects\DVLD-Project\DVLDPresentationLayer\bin\Debug\DVLDDataAccessLa
 M:\Coding\Projects\DVLD-Project\DVLDPresentationLayer\obj\Debug\DVLDPres.01805F8B.Up2Date
 M:\Coding\Projects\DVLD-Project\DVLDPresentationLayer\obj\Debug\DVLDPresentationLayer.MainForm.resources
 M:\Coding\Projects\DVLD-Project\DVLDPresentationLayer\obj\Debug\DVLDPresentationLayer.ManagePeopleForm.resources
-M:\Coding\Projects\DVLD-Project\DVLDPresentationLayer\obj\Debug\DVLDPresentationLayer.AddPerson.resources
 M:\Coding\Projects\DVLD-Project\DVLDPresentationLayer\obj\Debug\DVLDPresentationLayer.PersonControl.resources
+M:\Coding\Projects\DVLD-Project\DVLDPresentationLayer\obj\Debug\DVLDPresentationLayer.PersonForm.resources

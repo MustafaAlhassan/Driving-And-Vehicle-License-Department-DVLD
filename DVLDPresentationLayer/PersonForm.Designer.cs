@@ -1,6 +1,6 @@
 ﻿namespace DVLDPresentationLayer
 {
-    partial class AddPerson
+    partial class PersonForm
     {
         /// <summary>
         /// Required designer variable.
@@ -29,46 +29,32 @@
         private void InitializeComponent()
         {
             this.personControl1 = new DVLDPresentationLayer.PersonControl();
-            this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // personControl1
             // 
-            this.personControl1.Location = new System.Drawing.Point(11, 77);
+            this.personControl1.Location = new System.Drawing.Point(3, 1);
             this.personControl1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.personControl1.Name = "personControl1";
-            this.personControl1.Size = new System.Drawing.Size(958, 430);
+            this.personControl1.Size = new System.Drawing.Size(1082, 656);
             this.personControl1.TabIndex = 0;
+            this.personControl1.Load += new System.EventHandler(this.personControl1_Load);
             // 
-            // label1
+            // PersonForm
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 25.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.Maroon;
-            this.label1.Location = new System.Drawing.Point(300, 22);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(358, 51);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "Add New Person";
-            // 
-            // AddPerson
-            // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(975, 516);
-            this.Controls.Add(this.label1);
+            this.ClientSize = new System.Drawing.Size(1083, 660);
             this.Controls.Add(this.personControl1);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.Name = "AddPerson";
+            this.Name = "PersonForm";
             this.Text = "AddPerson";
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
 
         private PersonControl personControl1;
-        private System.Windows.Forms.Label label1;
     }
 }

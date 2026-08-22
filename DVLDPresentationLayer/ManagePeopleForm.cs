@@ -18,11 +18,13 @@ namespace DVLDPresentationLayer
             InitializeComponent();
         }
 
-        public void FillDataGridViewFromDatatable(DataGridView dgv, DataTable dt)
+        private void _RefreshPeopleList()
         {
-            dgv.DataSource = dt;
+            DataTable dataTable = clsPeople.GetAllPeople();
+            dgvPeople.DataSource = dataTable;
             dgvPeople.Columns["ImagePath"].Visible = false;
             dgvPeople.Columns["Address"].Visible = false;
+            UpdateRecordNumber(dataTable);
         }
 
         public void FillComboBox(ComboBox dgv, DataTable dt)
@@ -52,9 +54,8 @@ namespace DVLDPresentationLayer
         private void ManagePeopleForm_Load(object sender, EventArgs e)
         {
             DataTable dataTable = clsPeople.GetAllPeople();
-            FillDataGridViewFromDatatable(dgvPeople, dataTable);
+            _RefreshPeopleList();
             FillComboBox(cmbFilter, dataTable);
-            UpdateRecordNumber(dataTable);
         }
 
         private void contextMenuStrip1_Opening(object sender, CancelEventArgs e)
@@ -64,8 +65,9 @@ namespace DVLDPresentationLayer
 
         private void btnAddUser_Click(object sender, EventArgs e)
         {
-            AddPerson form = new AddPerson();
+            PersonForm form = new PersonForm();
             form.ShowDialog();
+            _RefreshPeopleList();
         }
     }
 }

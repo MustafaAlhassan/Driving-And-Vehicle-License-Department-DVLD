@@ -22,6 +22,7 @@ namespace DVLDBusinessLayer
         public string Phone { set; get; }
         public string Email { set; get; }
         public int NationalityCountryID { set; get; }
+        public string CountryName { set; get; }
         public string ImagePath { set; get; }
 
 
@@ -38,6 +39,7 @@ namespace DVLDBusinessLayer
             this.Phone = "";
             this.Email = "";
             this.NationalityCountryID = -1;
+            this.CountryName = "";
             this.ImagePath = "";
 
             Mode = enMode.AddNew;
