@@ -1,16 +1,11 @@
 ﻿using DVLDBusinessLayer;
 using DVLDPresentationLayer.Properties;
 using System;
-using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
-using System.Diagnostics.Contracts;
-using System.Drawing;
-using System.Linq;
-using System.Text;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
 
 namespace DVLDPresentationLayer
 {
@@ -38,6 +33,110 @@ namespace DVLDPresentationLayer
                 _Mode = enMode.AddNew;
             else
                 _Mode = enMode.Update;
+        }
+
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+            if (!this.ValidateChildren())
+            {
+                MessageBox.Show("Some fields are not valid!, put the mouse over the red icon(s) to see the error", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            if (!_HandlePersonImage())
+                return;
+
+            int CountryID = clsCountries.Find(cmbCountry.Text).CountryID;
+
+            _Person.FirstName = txtFirstName.Text;
+            _Person.SecondName = txtSecondName.Text;
+            _Person.ThirdName = txtThirdName.Text;
+            _Person.LastName = txtLastName.Text;
+            _Person.NationalNo = txtNationalNo.Text;
+            _Person.Gender = rbMale.Checked ? (byte)0 : (byte)1;
+            _Person.Email = txtEmail.Text;
+            _Person.Phone = txtPhone.Text;
+            _Person.Address = txtAddress.Text;
+            _Person.DateOfBirth = dtpDateOfBirth.Value;
+            _Person.NationalityCountryID = CountryID;
+
+            if (picBox.ImageLocation != null)
+                _Person.ImagePath = picBox.ImageLocation;
+            else
+                _Person.ImagePath = "";
+
+            if (_Person.Save())
+                MessageBox.Show("Data Saved Successfully.");
+            else
+                MessageBox.Show("Error: Data Is not Saved Successfully.");
+
+            _Mode = enMode.Update;
+            lblMode.Text = "Edit Person";
+            lblPersonID.Text = _Person.PersonID.ToString();
+        }
+
+        private bool _HandlePersonImage()
+        {
+            if (_Person.ImagePath == picBox.ImageLocation)
+                return true;
+
+            if (string.IsNullOrEmpty(picBox.ImageLocation))
+            {
+                if (!string.IsNullOrEmpty(_Person.ImagePath) && File.Exists(_Person.ImagePath))
+                {
+                    try { File.Delete(_Person.ImagePath); } catch { }
+                }
+                return true;
+            }
+
+            string sourceFile = picBox.ImageLocation;
+            string destinationFolder = @"C:\DVLD-People-Images\";
+
+            if (!Directory.Exists(destinationFolder))
+            {
+                Directory.CreateDirectory(destinationFolder);
+            }
+
+            string ext = Path.GetExtension(sourceFile);
+            string destinationFile = Path.Combine(destinationFolder, Guid.NewGuid().ToString() + ext);
+
+            try
+            {
+                File.Copy(sourceFile, destinationFile, true);
+                picBox.ImageLocation = destinationFile;
+                return true;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error copying image file: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+        }
+
+        private void linkSetImage_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            openFileDialog1.Filter = "Image Files|*.jpg;*.jpeg;*.png;*.bmp;*.gif";
+            openFileDialog1.FilterIndex = 1;
+            openFileDialog1.RestoreDirectory = true;
+
+            if (openFileDialog1.ShowDialog() == DialogResult.OK)
+            {
+                string selectedFilePath = openFileDialog1.FileName;
+                picBox.Load(selectedFilePath);
+                linkRemoveImage.Visible = true;
+            }
+        }
+
+        private void linkRemoveImage_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            picBox.ImageLocation = null;
+
+            if (rbMale.Checked)
+                picBox.Image = Resources.person_boy;
+            else
+                picBox.Image = Resources.person_girl;
+
+            linkRemoveImage.Visible = false;
         }
 
         private void _LoadData()
@@ -76,14 +175,17 @@ namespace DVLDPresentationLayer
             if (_Person.ImagePath != "")
             {
                 picBox.Load(_Person.ImagePath);
+                linkRemoveImage.Visible = true;
+            } 
+            else
+            {
+                linkRemoveImage.Visible = false;
             }
 
             if (_Person.Gender == 0)
                 rbMale.Checked = true;
             else
                 rbFemale.Checked = true;
-
-            //llRemoveImage.Visible = (_Person.ImagePath != "");
 
             cmbCountry.SelectedIndex = cmbCountry.FindString(clsPeople.Find(_Person.NationalityCountryID).CountryName);
         }
@@ -165,6 +267,10 @@ namespace DVLDPresentationLayer
             {
                 errorProvider1.SetError(txtNationalNo, "National Number Should have a value!");
             }
+            else if (_Person.NationalNo != txtNationalNo.Text && clsPeople.IsNationalNoExist(txtNationalNo.Text))
+            {
+                errorProvider1.SetError(txtNationalNo, "National Number is used for another person!");
+            }
             else
             {
                 errorProvider1.SetError(txtNationalNo, "");
@@ -214,65 +320,12 @@ namespace DVLDPresentationLayer
             }
         }
 
-        private void btnSave_Click(object sender, EventArgs e)
+        private void txtPhone_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (!this.ValidateChildren())
+            if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
             {
-                MessageBox.Show("Some fields are not valid!, put the mouse over the red icon(s) to see the error", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
+                e.Handled = true;
             }
-
-            int CountryID = clsCountries.Find(cmbCountry.Text).CountryID;
-
-            _Person.FirstName = txtFirstName.Text;
-            _Person.SecondName = txtSecondName.Text;
-            _Person.ThirdName = txtThirdName.Text;
-            _Person.LastName = txtLastName.Text;
-            _Person.NationalNo = txtNationalNo.Text;
-            _Person.Gender = rbMale.Checked ? (byte)0 : (byte)1;
-            _Person.Email = txtEmail.Text;
-            _Person.Phone = txtPhone.Text;
-            _Person.Address = txtAddress.Text;
-            _Person.DateOfBirth = dtpDateOfBirth.Value;
-            _Person.NationalityCountryID = CountryID;
-
-            if (picBox.ImageLocation != null)
-                _Person.ImagePath = picBox.ImageLocation;
-            else
-                _Person.ImagePath = "";
-
-            if (_Person.Save())
-                MessageBox.Show("Data Saved Successfully.");
-            else
-                MessageBox.Show("Error: Data Is not Saved Successfully.");
-
-            _Mode = enMode.Update;
-            lblMode.Text = "Edit Person";
-            lblPersonID.Text = _Person.PersonID.ToString();
         }
-
-        //private void llOpenFileDialog_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        //{
-        //    openFileDialog1.Filter = "Image Files|*.jpg;*.jpeg;*.png;*.gif;*.bmp";
-        //    openFileDialog1.FilterIndex = 1;
-        //    openFileDialog1.RestoreDirectory = true;
-
-        //    if (openFileDialog1.ShowDialog() == DialogResult.OK)
-        //    {
-        //        // Process the selected file
-        //        string selectedFilePath = openFileDialog1.FileName;
-        //        //MessageBox.Show("Selected Image is:" + selectedFilePath);
-
-        //        pictureBox1.Load(selectedFilePath);
-        //        // ...
-        //    }
-        //}
-
-        //private void llRemoveImage_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        //{
-
-        //    pictureBox1.ImageLocation = null;
-        //    llRemoveImage.Visible = false;
-        //}
     }
 }

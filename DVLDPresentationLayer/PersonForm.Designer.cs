@@ -48,7 +48,8 @@
             this.Controls.Add(this.personControl1);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "PersonForm";
-            this.Text = "AddPerson";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Add / Edit Person Info";
             this.ResumeLayout(false);
 
         }

@@ -131,5 +131,10 @@ namespace DVLDBusinessLayer
         {
             return clsPeopleData.IsPersonExist(PersonID);
         }
+
+        public static bool IsNationalNoExist(string NationalNo)
+        {
+            return clsPeopleData.IsNationalNoExist(NationalNo);
+        }
     }
 }

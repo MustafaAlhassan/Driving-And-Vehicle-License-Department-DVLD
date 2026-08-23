@@ -46,6 +46,7 @@
             this.btnAddUser = new System.Windows.Forms.Button();
             this.btnClose = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.txtFilter = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPeople)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -76,7 +77,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(14, 339);
+            this.label2.Location = new System.Drawing.Point(20, 330);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(75, 18);
             this.label2.TabIndex = 6;
@@ -85,12 +86,13 @@
             // cmbFilter
             // 
             this.cmbFilter.FormattingEnabled = true;
-            this.cmbFilter.Location = new System.Drawing.Point(105, 338);
+            this.cmbFilter.Location = new System.Drawing.Point(120, 326);
             this.cmbFilter.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.cmbFilter.Name = "cmbFilter";
             this.cmbFilter.Size = new System.Drawing.Size(226, 28);
             this.cmbFilter.TabIndex = 7;
             this.cmbFilter.Text = "None";
+            this.cmbFilter.SelectedIndexChanged += new System.EventHandler(this.cmbFilter_SelectedIndexChanged);
             // 
             // dgvPeople
             // 
@@ -119,8 +121,7 @@
             this.SendEmail,
             this.PhoneNumber});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(192, 172);
-            this.contextMenuStrip1.Opening += new System.ComponentModel.CancelEventHandler(this.contextMenuStrip1_Opening);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(215, 200);
             // 
             // ShowDetials
             // 
@@ -138,15 +139,17 @@
             // 
             this.AddNewPerson.Image = global::DVLDPresentationLayer.Properties.Resources.Add_User;
             this.AddNewPerson.Name = "AddNewPerson";
-            this.AddNewPerson.Size = new System.Drawing.Size(191, 26);
+            this.AddNewPerson.Size = new System.Drawing.Size(214, 26);
             this.AddNewPerson.Text = "Add New Person";
+            this.AddNewPerson.Click += new System.EventHandler(this.AddNewPerson_Click);
             // 
             // Edit
             // 
             this.Edit.Image = global::DVLDPresentationLayer.Properties.Resources.Person_edit;
             this.Edit.Name = "Edit";
-            this.Edit.Size = new System.Drawing.Size(191, 26);
+            this.Edit.Size = new System.Drawing.Size(214, 26);
             this.Edit.Text = "Edit";
+            this.Edit.Click += new System.EventHandler(this.Edit_Click);
             // 
             // Delete
             // 
@@ -164,15 +167,17 @@
             // 
             this.SendEmail.Image = global::DVLDPresentationLayer.Properties.Resources.email;
             this.SendEmail.Name = "SendEmail";
-            this.SendEmail.Size = new System.Drawing.Size(191, 26);
+            this.SendEmail.Size = new System.Drawing.Size(214, 26);
             this.SendEmail.Text = "Send Email";
+            this.SendEmail.Click += new System.EventHandler(this.SendEmail_Click);
             // 
             // PhoneNumber
             // 
             this.PhoneNumber.Image = global::DVLDPresentationLayer.Properties.Resources.phone;
             this.PhoneNumber.Name = "PhoneNumber";
-            this.PhoneNumber.Size = new System.Drawing.Size(191, 26);
+            this.PhoneNumber.Size = new System.Drawing.Size(214, 26);
             this.PhoneNumber.Text = "Phone Number";
+            this.PhoneNumber.Click += new System.EventHandler(this.PhoneNumber_Click);
             // 
             // btnAddUser
             // 
@@ -213,11 +218,21 @@
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
+            // txtFilter
+            // 
+            this.txtFilter.Location = new System.Drawing.Point(391, 326);
+            this.txtFilter.Name = "txtFilter";
+            this.txtFilter.Size = new System.Drawing.Size(255, 26);
+            this.txtFilter.TabIndex = 10;
+            this.txtFilter.Visible = false;
+            this.txtFilter.TextChanged += new System.EventHandler(this.txtFilter_TextChanged);
+            // 
             // ManagePeopleForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1761, 865);
+            this.Controls.Add(this.txtFilter);
             this.Controls.Add(this.dgvPeople);
             this.Controls.Add(this.cmbFilter);
             this.Controls.Add(this.label2);
@@ -228,6 +243,7 @@
             this.Controls.Add(this.pictureBox1);
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "ManagePeopleForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Manage People";
             this.Load += new System.EventHandler(this.ManagePeopleForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvPeople)).EndInit();
@@ -257,5 +273,6 @@
         private System.Windows.Forms.ToolStripMenuItem PhoneNumber;
         private System.Windows.Forms.ToolStripSeparator toolStripMenuItem1;
         private System.Windows.Forms.ToolStripSeparator toolStripMenuItem2;
+        private System.Windows.Forms.TextBox txtFilter;
     }
 }

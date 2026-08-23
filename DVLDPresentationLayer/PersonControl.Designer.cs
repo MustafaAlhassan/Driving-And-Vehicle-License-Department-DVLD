@@ -32,6 +32,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.lblPersonID = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.linkRemoveImage = new System.Windows.Forms.LinkLabel();
             this.dtpDateOfBirth = new System.Windows.Forms.DateTimePicker();
             this.linkSetImage = new System.Windows.Forms.LinkLabel();
             this.pictureBox10 = new System.Windows.Forms.PictureBox();
@@ -71,6 +72,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.lblMode = new System.Windows.Forms.Label();
+            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).BeginInit();
@@ -108,6 +110,7 @@
             // panel1
             // 
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel1.Controls.Add(this.linkRemoveImage);
             this.panel1.Controls.Add(this.dtpDateOfBirth);
             this.panel1.Controls.Add(this.linkSetImage);
             this.panel1.Controls.Add(this.pictureBox10);
@@ -151,6 +154,18 @@
             this.panel1.Size = new System.Drawing.Size(1038, 472);
             this.panel1.TabIndex = 9;
             // 
+            // linkRemoveImage
+            // 
+            this.linkRemoveImage.AutoSize = true;
+            this.linkRemoveImage.Location = new System.Drawing.Point(881, 339);
+            this.linkRemoveImage.Name = "linkRemoveImage";
+            this.linkRemoveImage.Size = new System.Drawing.Size(68, 20);
+            this.linkRemoveImage.TabIndex = 46;
+            this.linkRemoveImage.TabStop = true;
+            this.linkRemoveImage.Text = "Remove";
+            this.linkRemoveImage.Visible = false;
+            this.linkRemoveImage.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkRemoveImage_LinkClicked);
+            // 
             // dtpDateOfBirth
             // 
             this.dtpDateOfBirth.Format = System.Windows.Forms.DateTimePickerFormat.Short;
@@ -165,12 +180,13 @@
             // linkSetImage
             // 
             this.linkSetImage.AutoSize = true;
-            this.linkSetImage.Location = new System.Drawing.Point(878, 302);
+            this.linkSetImage.Location = new System.Drawing.Point(874, 305);
             this.linkSetImage.Name = "linkSetImage";
             this.linkSetImage.Size = new System.Drawing.Size(83, 20);
             this.linkSetImage.TabIndex = 44;
             this.linkSetImage.TabStop = true;
             this.linkSetImage.Text = "Set Image";
+            this.linkSetImage.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkSetImage_LinkClicked);
             // 
             // pictureBox10
             // 
@@ -351,11 +367,10 @@
             // 
             this.txtPhone.Location = new System.Drawing.Point(630, 159);
             this.txtPhone.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.txtPhone.Mask = "00000000000";
             this.txtPhone.Name = "txtPhone";
             this.txtPhone.Size = new System.Drawing.Size(169, 26);
             this.txtPhone.TabIndex = 29;
-            this.txtPhone.ValidatingType = typeof(int);
+            this.txtPhone.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPhone_KeyPress);
             this.txtPhone.Validating += new System.ComponentModel.CancelEventHandler(this.txbPhone_Validating);
             // 
             // label13
@@ -556,6 +571,10 @@
             this.lblMode.TabIndex = 10;
             this.lblMode.Text = "Add New Person";
             // 
+            // openFileDialog1
+            // 
+            this.openFileDialog1.FileName = "openFileDialog1";
+            // 
             // PersonControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -629,5 +648,7 @@
         private System.Windows.Forms.DateTimePicker dtpDateOfBirth;
         private System.Windows.Forms.ErrorProvider errorProvider1;
         private System.Windows.Forms.Label lblMode;
+        private System.Windows.Forms.OpenFileDialog openFileDialog1;
+        private System.Windows.Forms.LinkLabel linkRemoveImage;
     }
 }
