@@ -20,19 +20,22 @@ namespace DVLDPresentationLayer
         public PersonControl()
         {
             InitializeComponent();
-            _Mode = enMode.AddNew;
         }
 
-        public PersonControl(int PersonID)
+        public void LoadData(int PersonID)
         {
-            InitializeComponent();
-
             _PersonID = PersonID;
+
+            dtpDateOfBirth.MaxDate = DateTime.Now.AddYears(-18);
+            dtpDateOfBirth.MinDate = DateTime.Now.AddYears(-100);
+            rbMale.Checked = true;
 
             if (_PersonID == -1)
                 _Mode = enMode.AddNew;
             else
                 _Mode = enMode.Update;
+
+            _LoadData();
         }
 
         private void btnSave_Click(object sender, EventArgs e)
@@ -103,6 +106,12 @@ namespace DVLDPresentationLayer
             try
             {
                 File.Copy(sourceFile, destinationFile, true);
+
+                if (!string.IsNullOrEmpty(_Person.ImagePath) && File.Exists(_Person.ImagePath))
+                {
+                    try { File.Delete(_Person.ImagePath); } catch { }
+                }
+
                 picBox.ImageLocation = destinationFile;
                 return true;
             }
@@ -142,12 +151,12 @@ namespace DVLDPresentationLayer
         private void _LoadData()
         {
             _FillCountriesInComoboBox();
-            cmbCountry.SelectedIndex = 82;
 
             if (_Mode == enMode.AddNew)
             {
                 lblMode.Text = "Add New Person";
                 _Person = new clsPeople();
+                cmbCountry.SelectedIndex = cmbCountry.FindString("Iraq"); 
                 return;
             }
 
@@ -155,7 +164,7 @@ namespace DVLDPresentationLayer
 
             if (_Person == null)
             {
-                MessageBox.Show("This form will be closed because No People with ID = " + _Person);
+                MessageBox.Show("This form will be closed because No Person with ID = " + _PersonID);
                 OnCloseClick?.Invoke();
                 return;
             }
@@ -172,13 +181,14 @@ namespace DVLDPresentationLayer
             txtAddress.Text = _Person.Address;
             dtpDateOfBirth.Value = _Person.DateOfBirth;
 
-            if (_Person.ImagePath != "")
+            if (!string.IsNullOrEmpty(_Person.ImagePath) && File.Exists(_Person.ImagePath))
             {
                 picBox.Load(_Person.ImagePath);
                 linkRemoveImage.Visible = true;
-            } 
+            }
             else
             {
+                picBox.ImageLocation = null;
                 linkRemoveImage.Visible = false;
             }
 
@@ -187,7 +197,15 @@ namespace DVLDPresentationLayer
             else
                 rbFemale.Checked = true;
 
-            cmbCountry.SelectedIndex = cmbCountry.FindString(clsPeople.Find(_Person.NationalityCountryID).CountryName);
+            clsCountries country = clsCountries.Find(_Person.NationalityCountryID);
+            if (country != null)
+            {
+                cmbCountry.SelectedIndex = cmbCountry.FindString(country.CountryName);
+            }
+            else
+            {
+                cmbCountry.SelectedIndex = 0; 
+            }
         }
 
         public event Action OnCloseClick;
@@ -215,14 +233,6 @@ namespace DVLDPresentationLayer
             {
                 cmbCountry.Items.Add(row["CountryName"]);
             }
-        }
-
-        private void PersonControl_Load(object sender, EventArgs e)
-        {
-            dtpDateOfBirth.MaxDate = DateTime.Now.AddYears(-18);
-            dtpDateOfBirth.MinDate = DateTime.Now.AddYears(-100);
-            rbMale.Checked = true;
-            _LoadData();
         }
 
         private void txbFirst_Validating(object sender, CancelEventArgs e)
@@ -267,7 +277,7 @@ namespace DVLDPresentationLayer
             {
                 errorProvider1.SetError(txtNationalNo, "National Number Should have a value!");
             }
-            else if (_Person.NationalNo != txtNationalNo.Text && clsPeople.IsNationalNoExist(txtNationalNo.Text))
+            else if ((_Mode == enMode.AddNew || _Person.NationalNo != txtNationalNo.Text) && clsPeople.IsNationalNoExist(txtNationalNo.Text))
             {
                 errorProvider1.SetError(txtNationalNo, "National Number is used for another person!");
             }
@@ -281,7 +291,7 @@ namespace DVLDPresentationLayer
         {
             if (string.IsNullOrWhiteSpace(txtPhone.Text))
             {
-                errorProvider1.SetError(txtPhone, "National Number Should have a value!");
+                errorProvider1.SetError(txtPhone, "Phone Number Should have a value!");
             }
             else
             {

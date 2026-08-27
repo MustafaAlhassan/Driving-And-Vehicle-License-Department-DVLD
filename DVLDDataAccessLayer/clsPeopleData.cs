@@ -161,7 +161,7 @@ namespace DVLDDataAccessLayer
             SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
 
             string query = @"Update  People  
-                            set NationalNo = @NationalNo
+                            set NationalNo = @NationalNo,
                                 FirstName = @FirstName, 
                                 SecondName = @SecondName, 
                                 ThirdName = @ThirdName, 
@@ -173,7 +173,7 @@ namespace DVLDDataAccessLayer
                                 Email = @Email, 
                                 NationalityCountryID = @NationalityCountryID,
                                 ImagePath =@ImagePath
-                                where ID = @ID";
+                                where PersonID = @PersonID";
 
             SqlCommand command = new SqlCommand(query, connection);
 
@@ -181,7 +181,6 @@ namespace DVLDDataAccessLayer
             command.Parameters.AddWithValue("@NationalNo", NationalNo);
             command.Parameters.AddWithValue("@FirstName", FirstName);
             command.Parameters.AddWithValue("@SecondName", SecondName);
-            command.Parameters.AddWithValue("@ThirdName", ThirdName);
             command.Parameters.AddWithValue("@LastName", LastName);
             command.Parameters.AddWithValue("@DateOfBirth", DateOfBirth);
             command.Parameters.AddWithValue("@Gender", Gender);

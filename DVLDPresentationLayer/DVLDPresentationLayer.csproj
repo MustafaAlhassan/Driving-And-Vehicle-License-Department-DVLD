@@ -129,6 +129,10 @@
       <Project>{9e73772e-7431-4595-ba94-d3da31013ca8}</Project>
       <Name>DVLDBusinessLayer</Name>
     </ProjectReference>
+    <ProjectReference Include="..\DVLDDataAccessLayer\DVLDDataAccessLayer.csproj">
+      <Project>{ca710ce6-b203-400e-9f30-09e6fb4a0dc6}</Project>
+      <Name>DVLDDataAccessLayer</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\People-Large-Size.png" />

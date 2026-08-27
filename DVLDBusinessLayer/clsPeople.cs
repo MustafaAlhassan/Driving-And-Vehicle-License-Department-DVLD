@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Data;
 using DVLDDataAccessLayer;
-using System.Linq;
 
 namespace DVLDBusinessLayer
 {
@@ -50,6 +49,7 @@ namespace DVLDBusinessLayer
             byte Gender, string Address, string Phone, string Email,
             int NationalityCountryID, string ImagePath)
         {
+            this.NationalNo = NationalNo;
             this.PersonID = PersonID;
             this.FirstName = FirstName;
             this.SecondName = SecondName;

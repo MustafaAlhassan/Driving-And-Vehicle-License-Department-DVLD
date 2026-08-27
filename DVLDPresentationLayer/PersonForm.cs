@@ -1,25 +1,20 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+﻿using System.Windows.Forms;
 
 namespace DVLDPresentationLayer
 {
     public partial class PersonForm : Form
     {
-        public PersonForm()
+        private int _PersonID;
+
+        public PersonForm(int PersonID = -1)
         {
             InitializeComponent();
-        }
+            
+            _PersonID = PersonID;
 
-        private void personControl1_Load(object sender, EventArgs e)
-        {
             personControl1.OnCloseClick += PersonControl1_OnCloseClick;
+
+            personControl1.LoadData(_PersonID);
         }
 
         private void PersonControl1_OnCloseClick()

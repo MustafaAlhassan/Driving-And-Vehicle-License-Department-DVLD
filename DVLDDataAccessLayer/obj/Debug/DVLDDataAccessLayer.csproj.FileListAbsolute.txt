@@ -4,3 +4,9 @@ M:\Coding\Projects\DVLD-Project\DVLDDataAccessLayer\obj\Debug\DVLDDataAccessLaye
 M:\Coding\Projects\DVLD-Project\DVLDDataAccessLayer\obj\Debug\DVLDDataAccessLayer.csproj.CoreCompileInputs.cache
 M:\Coding\Projects\DVLD-Project\DVLDDataAccessLayer\obj\Debug\DVLDDataAccessLayer.dll
 M:\Coding\Projects\DVLD-Project\DVLDDataAccessLayer\obj\Debug\DVLDDataAccessLayer.pdb
+C:\projects\DVLD-Project\DVLDDataAccessLayer\bin\Debug\DVLDDataAccessLayer.dll
+C:\projects\DVLD-Project\DVLDDataAccessLayer\bin\Debug\DVLDDataAccessLayer.pdb
+C:\projects\DVLD-Project\DVLDDataAccessLayer\obj\Debug\DVLDDataAccessLayer.csproj.AssemblyReference.cache
+C:\projects\DVLD-Project\DVLDDataAccessLayer\obj\Debug\DVLDDataAccessLayer.csproj.CoreCompileInputs.cache
+C:\projects\DVLD-Project\DVLDDataAccessLayer\obj\Debug\DVLDDataAccessLayer.dll
+C:\projects\DVLD-Project\DVLDDataAccessLayer\obj\Debug\DVLDDataAccessLayer.pdb

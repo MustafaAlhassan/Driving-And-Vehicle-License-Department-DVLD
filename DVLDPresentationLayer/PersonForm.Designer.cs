@@ -38,7 +38,6 @@
             this.personControl1.Name = "personControl1";
             this.personControl1.Size = new System.Drawing.Size(1082, 656);
             this.personControl1.TabIndex = 0;
-            this.personControl1.Load += new System.EventHandler(this.personControl1_Load);
             // 
             // PersonForm
             // 

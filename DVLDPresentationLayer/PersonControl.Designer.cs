@@ -586,7 +586,6 @@
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "PersonControl";
             this.Size = new System.Drawing.Size(1082, 656);
-            this.Load += new System.EventHandler(this.PersonControl_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).EndInit();
