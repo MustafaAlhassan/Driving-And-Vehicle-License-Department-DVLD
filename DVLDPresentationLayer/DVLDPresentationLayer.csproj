@@ -72,6 +72,12 @@
     <Compile Include="ManagePeopleForm.Designer.cs">
       <DependentUpon>ManagePeopleForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="PersonInfomationCard.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PersonInfomationCard.Designer.cs">
+      <DependentUpon>PersonInfomationCard.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="PersonForm.resx">
@@ -85,6 +91,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ManagePeopleForm.resx">
       <DependentUpon>ManagePeopleForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PersonInfomationCard.resx">
+      <DependentUpon>PersonInfomationCard.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
