@@ -202,5 +202,22 @@ namespace DVLDPresentationLayer
                 }
             }
         }
+
+        private void ShowDetials_Click(object sender, EventArgs e)
+        {
+            if (dgvPeople.CurrentRow != null && dgvPeople.CurrentRow.Index >= 0)
+            {
+                if (int.TryParse(dgvPeople.CurrentRow.Cells["PersonID"].Value?.ToString(), out int selectedPersonID))
+                {
+                    ShowPersonDetials form = new ShowPersonDetials(selectedPersonID);
+                    form.ShowDialog();
+                    _RefreshPeopleList();
+                }
+                else
+                {
+                    MessageBox.Show("Person Not Found!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+            }
+        }
     }
 }

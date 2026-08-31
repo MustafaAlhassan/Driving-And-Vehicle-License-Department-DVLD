@@ -1,6 +1,6 @@
 ﻿namespace DVLDPresentationLayer
 {
-    partial class PersonInfomationCard
+    partial class PersonInformationCard
     {
         /// <summary> 
         /// Required designer variable.
@@ -208,6 +208,7 @@
             this.linkEditPersonInfo.TabIndex = 53;
             this.linkEditPersonInfo.TabStop = true;
             this.linkEditPersonInfo.Text = "Edit Person Info";
+            this.linkEditPersonInfo.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkEditPersonInfo_LinkClicked);
             // 
             // picBox
             // 
@@ -423,14 +424,14 @@
             this.label.TabIndex = 34;
             this.label.Text = "Person Details";
             // 
-            // PersonInfomationCard
+            // PersonInformationCard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.label);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.btnClose);
-            this.Name = "PersonInfomationCard";
+            this.Name = "PersonInformationCard";
             this.Size = new System.Drawing.Size(940, 536);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

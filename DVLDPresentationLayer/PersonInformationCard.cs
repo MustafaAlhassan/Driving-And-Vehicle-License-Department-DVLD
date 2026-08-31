@@ -1,29 +1,22 @@
 ﻿using DVLDBusinessLayer;
 using DVLDPresentationLayer.Properties;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace DVLDPresentationLayer
 {
-    public partial class PersonInfomationCard : UserControl
+    public partial class PersonInformationCard : UserControl
     {
         int _PersonID;
         clsPeople _Person;
 
-        public PersonInfomationCard()
+        public PersonInformationCard()
         {
             InitializeComponent();
         }
 
-        public void LoadData(int PersonID)
+        public void LoadData(int PersonID = -1)
         {
             _PersonID = PersonID;
             _LoadData();
@@ -46,12 +39,11 @@ namespace DVLDPresentationLayer
                 _Person.ThirdName + " " +
                 _Person.LastName + " ";
             lblNationalNo.Text = _Person.NationalNo;
-            lblGender.Text = _Person.Gender.ToString();
             lblEmail.Text = _Person.Email;
             lblPhone.Text = _Person.Phone;
             lblAddress.Text = _Person.Address;
-            lblCountry.Text = _Person.CountryName;
-            lblDateOfBirth.Text = _Person.DateOfBirth.ToLongDateString();
+            lblCountry.Text = clsCountries.Find(_Person.NationalityCountryID).CountryName;
+            lblDateOfBirth.Text = _Person.DateOfBirth.ToShortDateString();
 
             if (!string.IsNullOrEmpty(_Person.ImagePath) && File.Exists(_Person.ImagePath))
             {
@@ -61,10 +53,16 @@ namespace DVLDPresentationLayer
             {
                 picBox.ImageLocation = null;
                 
-                if (lblGender.Text == "Male")
+                if (_Person.Gender == 0)
+                {
                     picBox.Image = Resources.person_boy;
+                    lblGender.Text = "Male";
+                }
                 else
+                {
                     picBox.Image = Resources.person_girl;
+                    lblGender.Text = "Female";
+                }
             }
         }
 
@@ -73,6 +71,13 @@ namespace DVLDPresentationLayer
         private void btnClose_Click(object sender, EventArgs e)
         {
             OnCloseClick?.Invoke();
+        }
+
+        private void linkEditPersonInfo_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            PersonForm form = new PersonForm(_PersonID);
+            form.ShowDialog();
+            _LoadData();
         }
     }
 }

@@ -34,3 +34,5 @@ C:\projects\DVLD-Project\DVLDPresentationLayer\obj\Debug\DVLDPresentationLayer.c
 C:\projects\DVLD-Project\DVLDPresentationLayer\obj\Debug\DVLDPres.01805F8B.Up2Date
 C:\projects\DVLD-Project\DVLDPresentationLayer\obj\Debug\DVLDPresentationLayer.exe
 C:\projects\DVLD-Project\DVLDPresentationLayer\obj\Debug\DVLDPresentationLayer.pdb
+M:\Coding\Projects\DVLD-Project\DVLDPresentationLayer\obj\Debug\DVLDPresentationLayer.ShowPersonDetials.resources
+M:\Coding\Projects\DVLD-Project\DVLDPresentationLayer\obj\Debug\DVLDPresentationLayer.PersonInformationCard.resources
