@@ -42,7 +42,7 @@ namespace DVLDPresentationLayer
             lblEmail.Text = _Person.Email;
             lblPhone.Text = _Person.Phone;
             lblAddress.Text = _Person.Address;
-            lblCountry.Text = clsCountries.Find(_Person.NationalityCountryID).CountryName;
+            lblCountry.Text = _Person.CountryName;
             lblDateOfBirth.Text = _Person.DateOfBirth.ToShortDateString();
 
             if (!string.IsNullOrEmpty(_Person.ImagePath) && File.Exists(_Person.ImagePath))

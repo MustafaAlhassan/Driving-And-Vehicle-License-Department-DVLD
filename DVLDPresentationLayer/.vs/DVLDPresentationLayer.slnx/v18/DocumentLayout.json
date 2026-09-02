@@ -1,12 +1,36 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "M:\\Coding\\Projects\\DVLD-Project\\DVLDPresentationLayer\\",
-  "Documents": [],
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{9E73772E-7431-4595-BA94-D3DA31013CA8}|..\\DVLDBusinessLayer\\DVLDBusinessLayer.csproj|m:\\coding\\projects\\dvld-project\\dvldbusinesslayer\\clsusers.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
       "VerticalTabListWidth": 256,
-      "DocumentGroups": []
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "clsUsers.cs",
+              "DocumentMoniker": "M:\\Coding\\Projects\\DVLD-Project\\DVLDBusinessLayer\\clsUsers.cs",
+              "RelativeDocumentMoniker": "..\\DVLDBusinessLayer\\clsUsers.cs",
+              "ToolTip": "M:\\Coding\\Projects\\DVLD-Project\\DVLDBusinessLayer\\clsUsers.cs",
+              "RelativeToolTip": "..\\DVLDBusinessLayer\\clsUsers.cs",
+              "ViewState": "AgIAACcAAAAAAAAAAAA0wDwAAAAQAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-09-02T15:20:18.384Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
     }
   ]
 }
