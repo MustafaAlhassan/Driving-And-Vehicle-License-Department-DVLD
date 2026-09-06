@@ -1,12 +1,52 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "M:\\Coding\\Projects\\DVLD-Project\\DVLDPresentationLayer\\",
-  "Documents": [],
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{6557E32F-5AA7-496E-8552-019DAE533B2C}|DVLDPresentationLayer.csproj|m:\\coding\\projects\\dvld-project\\dvldpresentationlayer\\personinformationcard.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{6557E32F-5AA7-496E-8552-019DAE533B2C}|DVLDPresentationLayer.csproj|solutionrelative:personinformationcard.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6557E32F-5AA7-496E-8552-019DAE533B2C}|DVLDPresentationLayer.csproj|m:\\coding\\projects\\dvld-project\\dvldpresentationlayer\\userform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{6557E32F-5AA7-496E-8552-019DAE533B2C}|DVLDPresentationLayer.csproj|solutionrelative:userform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    }
+  ],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
       "VerticalTabListWidth": 256,
-      "DocumentGroups": []
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "PersonInformationCard.cs [Design]",
+              "DocumentMoniker": "M:\\Coding\\Projects\\DVLD-Project\\DVLDPresentationLayer\\PersonInformationCard.cs",
+              "RelativeDocumentMoniker": "PersonInformationCard.cs",
+              "ToolTip": "M:\\Coding\\Projects\\DVLD-Project\\DVLDPresentationLayer\\PersonInformationCard.cs [Design]",
+              "RelativeToolTip": "PersonInformationCard.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-09-06T15:12:30.148Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "UserForm.cs [Design]",
+              "DocumentMoniker": "M:\\Coding\\Projects\\DVLD-Project\\DVLDPresentationLayer\\UserForm.cs",
+              "RelativeDocumentMoniker": "UserForm.cs",
+              "ToolTip": "M:\\Coding\\Projects\\DVLD-Project\\DVLDPresentationLayer\\UserForm.cs [Design]*",
+              "RelativeToolTip": "UserForm.cs [Design]*",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-09-06T15:06:30.664Z",
+              "EditorCaption": " [Design]"
+            }
+          ]
+        }
+      ]
     }
   ]
 }

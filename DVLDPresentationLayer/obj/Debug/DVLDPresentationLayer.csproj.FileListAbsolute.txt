@@ -36,3 +36,5 @@ C:\projects\DVLD-Project\DVLDPresentationLayer\obj\Debug\DVLDPresentationLayer.e
 C:\projects\DVLD-Project\DVLDPresentationLayer\obj\Debug\DVLDPresentationLayer.pdb
 M:\Coding\Projects\DVLD-Project\DVLDPresentationLayer\obj\Debug\DVLDPresentationLayer.ShowPersonDetials.resources
 M:\Coding\Projects\DVLD-Project\DVLDPresentationLayer\obj\Debug\DVLDPresentationLayer.PersonInformationCard.resources
+M:\Coding\Projects\DVLD-Project\DVLDPresentationLayer\obj\Debug\DVLDPresentationLayer.ManageUsersForm.resources
+M:\Coding\Projects\DVLD-Project\DVLDPresentationLayer\obj\Debug\DVLDPresentationLayer.UserForm.resources

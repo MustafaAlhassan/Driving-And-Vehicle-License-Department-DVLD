@@ -22,5 +22,11 @@ namespace DVLDPresentationLayer
             ManagePeopleForm form = new ManagePeopleForm();
             form.ShowDialog();
         }
+
+        private void usersToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ManageUsersForm form = new ManageUsersForm();
+            form.ShowDialog();
+        }
     }
 }
